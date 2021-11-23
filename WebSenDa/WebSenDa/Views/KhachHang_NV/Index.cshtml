@@ -1,0 +1,73 @@
+﻿@model WebSenDa.Models.ViewModel
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+<h2 class="text-center">Danh Sách Khách Hàng</h2>
+@using (Html.BeginForm("Index", "KhachHang_NV", FormMethod.Get))
+{
+<div class="row mt-3">
+    <input class="user-input-search ml-3" type="text" placeholder="Nhập từ khóa tìm kiếm..." name="search" />
+
+    <button class="btn btn-search btn-info ml-3" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+    
+    <a href='@Url.Action("Index", "KhachHang_NV")' class="btn btn-reload btn-danger ml-3" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+</div>
+}
+
+
+<table class="table table-bordered table-hover mt-3">
+    <tr class="bg-success">
+        <th>
+            @Html.DisplayNameFor(model => model.khachhang.TenTaiKhoan)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.khachhang.TenKhachHang)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.khachhang.CMND)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.khachhang.AnhDaiDien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.khachhang.LoaiTaiKhoan.TenLoaiTaiKhoan)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ListKhachHang)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTaiKhoan)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhachHang)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.CMND)
+            </td>
+         
+            <td class="text-center">
+                <img src="@item.AnhDaiDien" style="width: 50px; height:50px;"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiTaiKhoan.TenLoaiTaiKhoan)
+            </td>
+            <td class="text-center">
+                @*@Html.ActionLink("Details", "Details", new { id = item.IDKhachHang })*@
+                <a class="btn btn-danger " href="@Url.Action("Detail",new { id=item.IDKhachHang})"><span style="margin-left:0px" class="far fa-clipboard"></span></a>
+
+            </td>
+        </tr>
+
+    }
+
+</table>

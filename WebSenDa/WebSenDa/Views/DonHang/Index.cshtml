@@ -1,0 +1,54 @@
+﻿@model WebSenDa.Models.ViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Danh Sách Đơn Hàng</h2>
+
+
+<table class="table table-bordered table-hover">
+    <tr class="bg-success">
+        <th>
+            @Html.DisplayNameFor(model => model.donhang.IDDonHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.donhang.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.donhang.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.donhang.NgayDat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.donhang.KhachHang.TenTaiKhoan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.ListDonHang) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.IDDonHang)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DiaChi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TrangThai)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayDat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.KhachHang.TenTaiKhoan)
+    </td>
+    <td class="text-center">
+        @*@Html.ActionLink("Details", "Details", new { id = item.IDDonHang })*@
+        <a class="btn btn-danger " href="@Url.Action("Detail",new { id=item.IDDonHang})"><span style="margin-left:0px" class="far fa-clipboard"></span></a>
+    </td>
+</tr>
+}
+
+</table>

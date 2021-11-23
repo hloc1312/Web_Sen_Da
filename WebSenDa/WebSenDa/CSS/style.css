@@ -1,0 +1,65 @@
+﻿.wrap-flex{
+    display:flex;
+    
+}
+.wrap{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+.wrap-flex-align-center {
+    display: flex;
+    align-items: center;
+}
+.textBold-width {
+    font-weight: bold;
+    width: 150px;
+}
+.text-bold{
+    font-weight:bold;
+}
+.text-align-center{
+    text-align: center;
+}
+/*Input Search*/
+.user-input-search {
+    border: 1px solid #989898;
+    padding: 5px 13px;
+    border-radius: 25px;
+    outline: none;
+    width: 350px;
+    transition: all .3s;
+}
+
+.user-input-search:hover {
+    border: 1px solid blue;
+}
+
+.w-50 {
+    width: 0%;
+}
+
+.w-25 {
+    width: 25%
+}
+
+
+table {
+    table-layout: fixed; /* will switch the table-layout algorythm */
+}
+
+.textThreeDot{
+    width:155px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.navbar {
+    padding: 0.5rem 0.8rem !important;
+}
+
+.mNavBar .navbar-nav li:hover a{
+    color: #fff;
+    text-decoration:none;
+}

@@ -1,0 +1,132 @@
+﻿@model WebSenDa.Models.ViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center">Chi Tiết Sản Phẩm</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sanPham.TenSanPham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sanPham.TenSanPham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sanPham.Hinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sanPham.Hinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sanPham.Hinh1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sanPham.Hinh1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sanPham.Hinh2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sanPham.Hinh2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sanPham.Hinh3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sanPham.Hinh3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sanPham.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sanPham.MoTa)
+        </dd>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.sanPham.Kho.IDSanPham)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.sanPham.Kho.IDSanPham)
+            </span>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.sanPham.KhuyenMai.IDKhuyenMai)
+            </span>
+
+            <dd>
+                @Html.DisplayFor(model => model.sanPham.KhuyenMai.IDKhuyenMai)
+            </dd>
+
+        </div>
+        
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.sanPham.LoaiChauCay.TenLoaiChauCay)
+            </span>
+
+            <dd>
+                @Html.DisplayFor(model => model.sanPham.LoaiChauCay.TenLoaiChauCay)
+            </dd>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.sanPham.LoaiGiaThe.TenLoaiGiaThe)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.sanPham.LoaiGiaThe.TenLoaiGiaThe)
+            </span>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.sanPham.LoaiSanPham.TenLoaiSanPham)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.sanPham.LoaiSanPham.TenLoaiSanPham)
+            </span>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.sanPham.LoaiSenDa.TenLoaiSenDa)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.sanPham.LoaiSenDa.TenLoaiSenDa)
+            </span>
+
+        </div>
+
+    </dl>
+</div>
+<div class="form-group">
+    <a class="btn btn-success" href="@Url.Action("AddDonNhap",new { id= Model.sanPham.IDSanPham})">Nhập đơn nhập kho</a>
+
+
+</div>
+<div class="form-group">
+    <a class="btn btn-info" href="@Url.Action("Index","QLSanPham")">Quay lại</a>
+
+</div>

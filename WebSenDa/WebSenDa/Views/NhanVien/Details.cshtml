@@ -1,0 +1,127 @@
+﻿@model WebSenDa.Models.ViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center">Chi Tiết Tài Khoản</h2>
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.TenTaiKhoan)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.nhanvien.TenTaiKhoan)
+            </span>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.MatKhau)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.nhanvien.MatKhau)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.TenNhanVien)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.nhanvien.TenNhanVien)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.SoDienThoai)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.nhanvien.SoDienThoai)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.CMND)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.nhanvien.CMND)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.Email)
+            </span>
+
+            <dd>
+                @Html.DisplayFor(model => model.nhanvien.Email)
+            </dd>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.AnhDaiDien)
+            </span>
+
+            <span>
+                @if (Model.nhanvien.AnhDaiDien == null && Model.nhanvien.AnhDaiDien == "")
+                {
+                    //Model.nhanvien.AnhDaiDien = "~/Content/img/icon.jpg";
+                    <img src="@Url.Content(Model.nhanvien.AnhDaiDien)" id="previewImg" alt="avatar" style="margin:0 auto;width:50px;height:50px" />
+
+
+                }
+                else
+                {
+                    <img src="@Url.Content(Model.nhanvien.AnhDaiDien)" class="img-responsive img-rounded" id="previewImg" alt="avatar" style="margin:0 auto;width:50px;height:50px" />
+                
+                }
+               
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.LoaiTaiKhoan.TenLoaiTaiKhoan)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.nhanvien.LoaiTaiKhoan.TenLoaiTaiKhoan)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.nhanvien.Quyen.TenQuyen)
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.nhanvien.Quyen.TenQuyen)
+            </span>
+
+        </div>
+
+    </dl>
+</div>
+<div class="form-group">
+    <a class="btn btn-info" href="@Url.Action("Index","NhanVien")">Quay lại</a>
+
+</div>

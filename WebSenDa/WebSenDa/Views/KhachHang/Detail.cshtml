@@ -1,0 +1,115 @@
+﻿
+@model WebSenDa.Models.ViewModel
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2 class="text-center">Chi Tiết Khách Hàng</h2>
+
+<div>
+
+
+    <dl class="dl-horizontal">
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.TenTaiKhoan):
+            </span>
+            <span>
+                @Html.DisplayFor(model => model.khachhang.TenTaiKhoan)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.MatKhau):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.khachhang.MatKhau)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.TenKhachHang):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.khachhang.TenKhachHang)
+            </span>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.SoDienThoai):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.khachhang.SoDienThoai)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.CMND):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.khachhang.CMND)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.Email):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.khachhang.Email)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.DiemTichLuy):
+            </span>
+
+            <dd>
+                @Html.DisplayFor(model => model.khachhang.DiemTichLuy)
+            </dd>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.AnhDaiDien):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.khachhang.AnhDaiDien)
+            </span>
+
+        </div>
+
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.khachhang.LoaiTaiKhoan.TenLoaiTaiKhoan):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.khachhang.LoaiTaiKhoan.TenLoaiTaiKhoan)
+            </span>
+
+        </div>
+
+    </dl>
+</div>
+<div class="form-group">
+    <a class="btn btn-info" href="@Url.Action("Index","KhachHang")">Quay lại</a>
+
+</div>

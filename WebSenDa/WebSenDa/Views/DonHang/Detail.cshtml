@@ -1,0 +1,117 @@
+﻿@model WebSenDa.Models.ViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center">Chi Tiết Đơn Hàng</h2>
+
+<div class="col-lg-12">
+    <dl class="dl-horizontal">
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.donhang.IDDonHang):
+            </span>
+            <span>
+                @Html.DisplayFor(model => model.donhang.IDDonHang)
+            </span>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.donhang.KhachHang.TenTaiKhoan):
+            </span>
+
+            <dd>
+                @Html.DisplayFor(model => model.donhang.KhachHang.TenTaiKhoan)
+            </dd>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.donhang.NgayDat):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.donhang.NgayDat)
+            </span>
+
+        </div>
+        <div class="form-group wrap-flex">
+            <span class="textBold-width">
+                @Html.DisplayNameFor(model => model.donhang.TrangThai):
+            </span>
+
+            <span>
+                @Html.DisplayFor(model => model.donhang.TrangThai)
+            </span>
+
+        </div>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        if (Model.donhang.TrangThai == 0)
+        {
+            <div class="form-group">
+                <input type="submit" name="duyet" value="Duyệt" class="btn btn-success" />
+                <input type="submit" name="huy" value="Hủy" class="btn btn-danger" />
+
+            </div>
+
+        }
+        else if (Model.donhang.TrangThai == 1)
+        {
+            <div class="form-group">
+                <input type="submit" name="giao" value="Giao" class="btn btn-primary" />
+            </div>
+        }
+
+
+
+    }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ct_donhang.SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ct_donhang.DonGia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ct_donhang.IDDonHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ct_donhang.SanPham.TenSanPham)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.ListCT_DonHang)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoLuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonGia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonHang.IDDonHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
+                </td>
+
+            </tr>
+        }
+
+
+    </table>
+    <div class="form-group">
+        <a class="btn btn-info" href="@Url.Action("Index","DonHang")">Quay lại</a>
+
+    </div>
+
+</div>
+

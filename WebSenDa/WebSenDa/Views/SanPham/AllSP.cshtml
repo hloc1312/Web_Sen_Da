@@ -1,0 +1,23 @@
+﻿@model WebSenDa.Models.ViewModel
+
+<link href="~/Content/Home/Home.css" rel="stylesheet" />
+
+<div class="normalItems">  
+    <div class="normalItemsContainer row">
+        @foreach (var sp in Model.ListSanPham)
+        {                
+            <div class="col-md-3 px-md-3">
+                <div class="nItem">
+                    <a href="/SanPham/Details/@sp.IDSanPham"><img src="@Url.Content(sp.Hinh)" /></a>
+                    <div class="nItemContent">
+                        <p>@Html.DisplayFor(modle => sp.TenSanPham)</p>
+                        <div class="nItemContent_span">
+                            <span>@Html.DisplayFor(modle => sp.Kho.GiaBan) vnđ</span>
+                            <span>Còn: @Html.DisplayFor(modle => sp.Kho.SoLuongTon)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>                           
+        }
+    </div>    
+</div>

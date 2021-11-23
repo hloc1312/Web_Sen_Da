@@ -1,0 +1,89 @@
+﻿
+@model WebSenDa.Models.ViewModel
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>KhachHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.TenTaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.TenTaiKhoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.MatKhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.MatKhau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.TenKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.TenKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.SoDienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.SoDienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.DiemTichLuy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.DiemTichLuy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.AnhDaiDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.AnhDaiDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khachhang.LoaiTaiKhoan.TenLoaiTaiKhoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khachhang.LoaiTaiKhoan.TenLoaiTaiKhoan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
