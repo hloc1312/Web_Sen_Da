@@ -85,13 +85,13 @@ namespace WebSenDa.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(v.nhanvien.TenTaiKhoan, false);
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    Session["TenTaiKhoan"] = v.nhanvien.TenTaiKhoan;
+                    Session["TenTaiKhoan"] = v.nhanvien.TenTaiKhoan;    
                     //return RedirectToAction("Index", "QLSanPham");
                     if (User.IsInRole("Admin"))
                     {
                         return RedirectToAction("Index", "Quyen");
                     }
-                    else if (User.IsInRole("Nhân viên kho"))
+                    else if (check_tt.IDQuyen==2)
                     {
                         return RedirectToAction("Index", "QLSanPham");
                     }
@@ -100,7 +100,6 @@ namespace WebSenDa.Controllers
                         return RedirectToAction("Index", "DonHang");
                     }
 
-                
                
             }
             //}

@@ -69,12 +69,11 @@
             <a href="@Url.Action("Index","NhanVien")" class="btn btn-info mr-3">Quản Nhân Viên</a>
             <a href="@Url.Action("Index","KhachHang")" class="btn btn-info mr-3">Quản Khách Hàng</a>
         }
-        @if (User.IsInRole("Nhân viên kho"))
+        @if (User.IsInRole("Quản lý kho"))
         {
-            <a href="@Url.Action("Index","QLSanPham")" class="btn btn-info mr-3">Quản Lý Sản Phẩm</a>
            
         }
-        @if (User.IsInRole("Nhân viên bán hàng"))
+        @if (User.IsInRole("Quản lý bán hàng"))
         {
             <a href="@Url.Action("Index","DonHang")" class="btn btn-info mr-3">Quản Lý Đơn Hàng</a>
             <a href="@Url.Action("Index","KhachHang")" class="btn btn-info mr-3">Quản Khách Hàng</a>

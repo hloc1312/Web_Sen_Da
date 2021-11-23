@@ -121,7 +121,7 @@ namespace WebSenDa.Controllers.QuanLy
         public ActionResult Delete(int submit)
         {
             Models.NhanVien nv = db.NhanVien.Where(m => m.IDNhanVien == submit).SingleOrDefault();
-            nv.IDQuyen = 0;
+            nv.IDQuyen = 4;
             db.SaveChanges();
             return Redirect("Index");
         }
