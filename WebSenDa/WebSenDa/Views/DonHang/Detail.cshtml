@@ -63,6 +63,12 @@
         else if (Model.donhang.TrangThai == 1)
         {
             <div class="form-group">
+                <input type="submit" name="dangGiao" value="Đang Giao" class="btn btn-warning" />
+            </div>
+        }
+        else if (Model.donhang.TrangThai == 3)
+        {
+            <div class="form-group">
                 <input type="submit" name="giao" value="Giao" class="btn btn-primary" />
             </div>
         }
@@ -70,8 +76,8 @@
 
 
     }
-    <table class="table">
-        <tr>
+    <table class="table table-bordered table-hover">
+        <tr class="bg-success">
             <th>
                 @Html.DisplayNameFor(model => model.ct_donhang.SoLuong)
             </th>
@@ -84,7 +90,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.ct_donhang.SanPham.TenSanPham)
             </th>
-            <th></th>
+
         </tr>
 
         @foreach (var item in Model.ListCT_DonHang)

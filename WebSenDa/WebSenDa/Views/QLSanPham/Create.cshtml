@@ -21,7 +21,7 @@
             @Html.ValidationMessageFor(model => model.sanPham.IDSanPham, "", new { @class = "text-danger" })
         </div>
     </div>*@
-
+    @Html.HiddenFor(m => m.sanPham.IDSanPham);
     <div class="form-group wrap-flex-align-center">
         @Html.LabelFor(model => model.sanPham.IDLoaiSanPham, "IDLoaiSanPham", htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-2 col-sm-4 text-bold" })
         <div class="col-md-10">
@@ -116,20 +116,20 @@
             @Html.ValidationMessageFor(model => model.sanPham.MoTa, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group wrap-flex-align-center">
+    @*<div class="form-group wrap-flex-align-center">
         @Html.LabelFor(model => model.kho.GiaBan, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-2 col-sm-4 text-bold" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.kho.GiaBan, new { htmlAttributes = new { @class = "form-control col-md-10 col-sm-8" } })
             @Html.ValidationMessageFor(model => model.kho.GiaBan, "", new { @class = "text-danger" })
         </div>
-    </div>
-    <div class="form-group wrap-flex-align-center">
+    </div>*@
+    @*<div class="form-group wrap-flex-align-center">
         @Html.LabelFor(model => model.sanPham.MoTa, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-2 col-sm-4 text-bold" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.sanPham.MoTa, new { htmlAttributes = new { @class = "form-control col-md-10 col-sm-8" } })
             @Html.ValidationMessageFor(model => model.sanPham.MoTa, "", new { @class = "text-danger" })
         </div>
-    </div>
+    </div>*@
     <div class="form-group wrap-flex-align-center">
         @Html.LabelFor(model => model.nhapKho.SoLuongNhap, htmlAttributes: new { @class = "control-label col-md-offset-1 col-md-2 col-sm-4 text-bold" })
         <div class="col-md-10">

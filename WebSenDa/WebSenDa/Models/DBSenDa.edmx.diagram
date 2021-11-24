@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="SenDaModel.DiaChi" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SenDaModel.DonHang" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SenDaModel.KhachHang" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="SenDaModel.Kho" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SenDaModel.Kho" Width="1.5" PointX="5.375" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SenDaModel.KhuyenMai" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="SenDaModel.LoaiChauCay" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SenDaModel.LoaiGiaThe" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
@@ -28,7 +28,6 @@
         <AssociationConnector Association="SenDaModel.FK_DiaChi_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="SenDaModel.FK_DonHang_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="SenDaModel.FK_KhachHang_LoaiTaiKhoan" ManuallyRouted="false" />
-        <AssociationConnector Association="SenDaModel.FK_Kho_SanPham" ManuallyRouted="false" />
         <AssociationConnector Association="SenDaModel.FK_SanPham_KhuyenMai" ManuallyRouted="false" />
         <AssociationConnector Association="SenDaModel.FK_SanPham_LoaiChauCay" ManuallyRouted="false" />
         <AssociationConnector Association="SenDaModel.FK_SanPham_LoaiGiaThe" ManuallyRouted="false" />

@@ -1,6 +1,8 @@
 ﻿.wrap-flex{
     display:flex;
-    
+}
+.color-red{
+    color:red;
 }
 .wrap{
     display:flex;

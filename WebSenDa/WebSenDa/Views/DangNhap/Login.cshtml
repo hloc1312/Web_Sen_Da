@@ -3,41 +3,54 @@
     ViewBag.Title = "Login";
 }
 <script>
-        isBool = true;
-        function showHidden() {
-            if (isBool) {
-                document.getElementById("password").setAttribute("type", "text");
-                isBool = false;
-            }
-            else {
-                document.getElementById("password").setAttribute("type", "password");
-                isBool = true;
-            }
+    isBool = true;
+    function showHidden() {
+        if (isBool) {
+            document.getElementById("password").setAttribute("type", "text");
+            isBool = false;
         }
+        else {
+            document.getElementById("password").setAttribute("type", "password");
+            isBool = true;
+        }
+    }
 </script>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken();
-<div class="wrap">
-    <h1>Đăng nhập</h1>
-    <p class="form-input">
-        @Html.EditorFor(model => model.nhanvien.TenTaiKhoan, new { style = "field-validation-error", placeholder = "Nhập tên tài khoản" })
-    </p>
-    <p>@Html.ValidationMessageFor(model => model.nhanvien.TenTaiKhoan)</p>
-    <p class="form-input">@Html.PasswordFor(model => model.nhanvien.MatKhau, new { style = "field-validation-error", placeholder = "Nhập mật khẩu", id = "password", name = "password" })</p>
-    <p>@Html.ValidationMessageFor(model => model.nhanvien.MatKhau)</p>
+    <div class="wrap">
+        <h1>Đăng nhập</h1>
+        <p class="form-input">
+            @Html.EditorFor(model => model.nhanvien.TenTaiKhoan, new { style = "field-validation-error", placeholder = "Nhập tên tài khoản" })
+        </p>
+        <p>@Html.ValidationMessageFor(model => model.nhanvien.TenTaiKhoan)</p>
+        <p class="form-input">@Html.PasswordFor(model => model.nhanvien.MatKhau, new { style = "field-validation-error", placeholder = "Nhập mật khẩu", id = "password", name = "password" })</p>
+        <p>@Html.ValidationMessageFor(model => model.nhanvien.MatKhau)</p>
 
-    <label class="check-remaind" style="margin-left:-70px;">
-        <input type="checkbox" name="showPassword" id="showPassword" onclick="showHidden()">
-        <span class="checkmark"></span>
-        <span class="remember">Hiện mật khẩu</span>
-    </label>
-    <div style="text-align:center" class="form-group">
-        <input type="submit" class="btn btn-primary theme-button mt-4" value="Đăng nhập" />
+        <label class="check-remaind" style="margin-left:-70px;">
+            <input type="checkbox" name="showPassword" id="showPassword" onclick="showHidden()">
+            <span class="checkmark"></span>
+            <span class="remember">Hiện mật khẩu</span>
+        </label>
+        <div class="color-red" style="margin-left:-22px;">
+            @if (ViewBag.Error != null)
+            {
+                @ViewBag.Error
+            }
+
+        </div>
+        <div class="color-red" style="margin-left:60px;">
+            @if (ViewBag.Check_TT != null)
+            {
+                @ViewBag.Check_TT
+            }
+        </div>
+        <div style="text-align:center" class="form-group">
+            <input type="submit" class="btn btn-primary theme-button mt-4" value="Đăng nhập" />
+        </div>
+        <div></div>
+        <div></div>
     </div>
-    <div></div>
-    <div></div>
-</div>
-   
+
 }
 

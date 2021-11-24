@@ -66,17 +66,18 @@
         {
             @*<a href="@Url.Action("Index","QLSanPham")" class="btn btn-info mr-3">Quản Lý Sản Phẩm</a>*@
             <a href="@Url.Action("Index","Quyen")" class="btn btn-info mr-3">Quản Lý Quyền</a>
-            <a href="@Url.Action("Index","NhanVien")" class="btn btn-info mr-3">Quản Nhân Viên</a>
-            <a href="@Url.Action("Index","KhachHang")" class="btn btn-info mr-3">Quản Khách Hàng</a>
+            <a href="@Url.Action("Index","NhanVien")" class="btn btn-info mr-3">Quản Lý Nhân Viên</a>
+            <a href="@Url.Action("Index","KhachHang")" class="btn btn-info mr-3">Quản Lý Khách Hàng</a>
         }
-        @if (User.IsInRole("Quản lý kho"))
+        @if (User.IsInRole("Nhân viên kho"))
         {
-           
+            <a href="@Url.Action("Index","QLSanPham")" class="btn btn-info mr-3">Quản Lý Sản Phẩm</a>
+
         }
-        @if (User.IsInRole("Quản lý bán hàng"))
+        @if (User.IsInRole("Nhân viên bán hàng"))
         {
             <a href="@Url.Action("Index","DonHang")" class="btn btn-info mr-3">Quản Lý Đơn Hàng</a>
-            <a href="@Url.Action("Index","KhachHang")" class="btn btn-info mr-3">Quản Khách Hàng</a>
+            <a href="@Url.Action("Index","KhachHang")" class="btn btn-info mr-3">Quản Lý Khách Hàng</a>
         }
     </div>
     <div class="container body-content">

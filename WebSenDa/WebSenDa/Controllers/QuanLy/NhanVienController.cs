@@ -17,7 +17,7 @@ namespace WebSenDa.Controllers.QuanLy
         public ActionResult Index()
         {
             var model = new ViewModel();
-            model.ListNhanVien = db.NhanVien.Where(m => m.IDQuyen != 0).ToList();
+            model.ListNhanVien = db.NhanVien.Where(m => m.IDQuyen != 4).ToList();
             return View(model);
         }
         public ActionResult Details(int id)

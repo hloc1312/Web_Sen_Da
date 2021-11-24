@@ -18,7 +18,7 @@ namespace WebSenDa.Controllers.NhanVien
             v.ListDonHang = db.DonHang.ToList();
             return View(v);
         }
-        public ActionResult Detail(int id, string giao, string duyet,string huy)
+        public ActionResult Detail(int id, string giao, string duyet,string huy, string dangGiao)
         {
             ViewModel v = new ViewModel();
             v.donhang = db.DonHang.Where(m => m.IDDonHang == id).Single();
@@ -46,6 +46,15 @@ namespace WebSenDa.Controllers.NhanVien
                 DonHang dh = new DonHang();
                 dh = db.DonHang.Where(m => m.IDDonHang == id ).Single();
                 dh.TrangThai = 2;
+                db.Entry(dh).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            if (!string.IsNullOrEmpty(dangGiao))
+            {
+                DonHang dh = new DonHang();
+                dh = db.DonHang.Where(m => m.IDDonHang == id).Single();
+                dh.TrangThai = 3;
                 db.Entry(dh).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

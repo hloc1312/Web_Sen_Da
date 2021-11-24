@@ -60,9 +60,9 @@ namespace WebSenDa.Controllers.NhanVien
             SanPham s = new SanPham();
             NhapKho nk = new NhapKho();
             Kho kho = new Kho();
-            var check = db.SanPham.Where(x => x.IDSanPham == v.sanPham.IDSanPham).FirstOrDefault();
-            if(check == null)
-            {
+            
+            
+                int count = db.SanPham.Count();
                 s.Hinh1 = v.sanPham.Hinh1;
                 s.Hinh = v.sanPham.Hinh;
                 s.Hinh2 = v.sanPham.Hinh2;
@@ -73,34 +73,36 @@ namespace WebSenDa.Controllers.NhanVien
                 s.IDLoaiSenDa = v.sanPham.IDLoaiSenDa;
                 s.IDKhuyenMai = v.sanPham.IDKhuyenMai;
                 s.MoTa = v.sanPham.MoTa;
-                s.TenSanPham = v.sanPham.TenSanPham;
-                nk.IDSanPham = v.sanPham.IDSanPham;
-                nk.NgayNhap = DateTime.Now;
-                nk.SoLuongNhap = v.nhapKho.SoLuongNhap;
-                kho.SoLuongTon = v.nhapKho.SoLuongNhap;
-                kho.IDSanPham = v.sanPham.IDSanPham;
-                kho.GiaBan = v.kho.GiaBan;
+                s.TenSanPham = v.sanPham.TenSanPham;                
                 db.SanPham.Add(s);
-                db.Kho.Add(kho);
-                db.NhapKho.Add(nk);
+            db.SaveChanges();
+            int ID = db.SanPham.OrderByDescending(x => x.IDSanPham)
+                             .Take(1)
+                             .Select(x => x.IDSanPham)
+                             .ToList()
+                             .FirstOrDefault();
+            nk.IDSanPham = ID;
+            nk.NgayNhap = DateTime.Now;
+            nk.SoLuongNhap = v.nhapKho.SoLuongNhap;
+            nk.GiaNhap = v.nhapKho.GiaNhap;
+            kho.IDSanPham = ID;
+            kho.SoLuongTon = v.nhapKho.SoLuongNhap;
+            kho.GiaBan = v.kho.GiaBan;
+            db.NhapKho.Add(nk);
+            db.Kho.Add(kho);
+            db.SaveChanges();
 
-                db.SaveChanges();
+            return RedirectToAction("Index","QLSanPham");
 
-                return RedirectToAction("Index","QLSanPham");
-
-            }
-            else
-            {
-                ViewBag.Error = "Mã sản phẩm đã tồn tại";
-                return View();
-            }
+            
 
         }
         public ActionResult Edit(int id)
         {
             ViewModel v = new ViewModel();
             v.sanPham = db.SanPham.Where(n => n.IDSanPham == id).Single();
-            v.kho = db.Kho.Where(n => n.IDSanPham == id).Single();
+            v.kho= db.Kho.Where(n => n.IDSanPham == id).Single();
+            //v.kho = db.Kho.Where(n => n.IDSanPham == id).Single();
             List<LoaiSanPham> sp = db.LoaiSanPham.ToList();
             ViewBag.ListLoaiSanPham = new SelectList(sp, "IDLoaiSanPham", "TenLoaiSanPham",v.sanPham.IDLoaiSanPham);
             ViewBag.ListLoaiSenDa = new SelectList(db.LoaiSenDa.ToList(), "IDLoaiSenDa", "TenLoaiSenDa", v.sanPham.IDLoaiSenDa);
@@ -124,7 +126,7 @@ namespace WebSenDa.Controllers.NhanVien
                 ViewBag.ListKhuyenMai = new SelectList(db.KhuyenMai.ToList(), "IDKhuyenMai", "GiaTriKhuyenMai", v.sanPham.IDKhuyenMai);
                 SanPham s = db.SanPham.Where(n => n.IDSanPham == v.sanPham.IDSanPham).Single();
                 Kho kho = db.Kho.Where(n => n.IDSanPham == v.sanPham.IDSanPham).Single();
-
+                
     /*            s.IDSanPham = v.sanPham.IDSanPham;
     */          s.Hinh1 = v.sanPham.Hinh1;
                 s.Hinh = v.sanPham.Hinh;
@@ -138,9 +140,9 @@ namespace WebSenDa.Controllers.NhanVien
                 s.MoTa = v.sanPham.MoTa;
                 s.TenSanPham = v.sanPham.TenSanPham;
 
-    /*            kho.SoLuongTon = v.nhapKho.SoLuongNhap;
-    *//*            kho.IDSanPham = v.sanPham.IDSanPham;
-    */            kho.GiaBan = v.kho.GiaBan;
+    /*            kho.SoLuongTon = v.nhapKho.SoLuongNhap;*/           
+                kho.IDSanPham = v.sanPham.IDSanPham;
+                kho.GiaBan = v.kho.GiaBan;
                 db.SanPham.Attach(s);
                 db.Kho.Attach(kho);
                 db.Entry(s).State = EntityState.Modified;
@@ -157,6 +159,7 @@ namespace WebSenDa.Controllers.NhanVien
             NhapKho nk = new NhapKho();
             v.nhapKho = nk;
             v.nhapKho.IDSanPham = id;
+
             return View(v);
         }
         [HttpPost]

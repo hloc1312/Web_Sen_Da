@@ -66,7 +66,7 @@ namespace WebSenDa.Controllers
             //    return View("Login");
             //}
 
-            var check_tt = db.NhanVien.Where(s => s.TenTaiKhoan == v.nhanvien.TenTaiKhoan && s.MatKhau == v.nhanvien.MatKhau && s.IDQuyen != 0).SingleOrDefault();
+            var check_tt = db.NhanVien.Where(s => s.TenTaiKhoan == v.nhanvien.TenTaiKhoan && s.MatKhau == v.nhanvien.MatKhau && s.IDQuyen != 4).SingleOrDefault();
             //if (ModelState.IsValid)
             //{
             if (check_tt == null)
@@ -87,7 +87,7 @@ namespace WebSenDa.Controllers
                     db.Configuration.ValidateOnSaveEnabled = false;
                     Session["TenTaiKhoan"] = v.nhanvien.TenTaiKhoan;    
                     //return RedirectToAction("Index", "QLSanPham");
-                    if (User.IsInRole("Admin"))
+                    if (check_tt.IDQuyen == 1)
                     {
                         return RedirectToAction("Index", "Quyen");
                     }
@@ -95,9 +95,14 @@ namespace WebSenDa.Controllers
                     {
                         return RedirectToAction("Index", "QLSanPham");
                     }
-                    else 
+                    else if(check_tt.IDQuyen == 3)
                     {
                         return RedirectToAction("Index", "DonHang");
+                    }
+                    else
+                    {
+                        ViewBag.Check_TT = "Tài khoản của bạn đã bị vô hiệu hóa";
+                        return View();
                     }
 
                

@@ -61,7 +61,7 @@
     <Key>
       <PropertyRef Name="IDSanPham" />
     </Key>
-    <Property Name="IDSanPham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDSanPham" Type="int" Nullable="false" />
     <Property Name="GiaBan" Type="decimal" Precision="18" Scale="3" Nullable="false" />
     <Property Name="SoLuongTon" Type="int" Nullable="false" />
   </EntityType>

@@ -42,7 +42,7 @@
     </Key>
     <Property Name="IDDonHang" Type="Int32" Nullable="false" />
     <Property Name="IDKhachHang" Type="Int32" Nullable="false" />
-    <Property Name="DiaChi" Type="String" Nullable="false" />
+    <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="TrangThai" Type="Int32" Nullable="false" />
     <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="ChiTietDonHang" Relationship="Self.FK_ChiTietDonHang_DonHang" FromRole="DonHang" ToRole="ChiTietDonHang" />
@@ -75,7 +75,6 @@
     <Property Name="IDSanPham" Type="Int32" Nullable="false" />
     <Property Name="GiaBan" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
     <Property Name="SoLuongTon" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="SanPham" Relationship="Self.FK_Kho_SanPham" FromRole="Kho" ToRole="SanPham" />
   </EntityType>
   <EntityType Name="KhuyenMai">
     <Key>
@@ -180,7 +179,6 @@
     <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChiTietDonHang" Relationship="Self.FK_ChiTietDonHang_SanPham" FromRole="SanPham" ToRole="ChiTietDonHang" />
     <NavigationProperty Name="DanhGia" Relationship="Self.FK_DanhGia_SanPham" FromRole="SanPham" ToRole="DanhGia" />
-    <NavigationProperty Name="Kho" Relationship="Self.FK_Kho_SanPham" FromRole="SanPham" ToRole="Kho" />
     <NavigationProperty Name="KhuyenMai" Relationship="Self.FK_SanPham_KhuyenMai" FromRole="SanPham" ToRole="KhuyenMai" />
     <NavigationProperty Name="LoaiChauCay" Relationship="Self.FK_SanPham_LoaiChauCay" FromRole="SanPham" ToRole="LoaiChauCay" />
     <NavigationProperty Name="LoaiGiaThe" Relationship="Self.FK_SanPham_LoaiGiaThe" FromRole="SanPham" ToRole="LoaiGiaThe" />
@@ -269,18 +267,6 @@
       </Principal>
       <Dependent Role="KhachHang">
         <PropertyRef Name="IDLoaiTaiKhoan" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Kho_SanPham">
-    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
-    <End Role="Kho" Type="Self.Kho" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="SanPham">
-        <PropertyRef Name="IDSanPham" />
-      </Principal>
-      <Dependent Role="Kho">
-        <PropertyRef Name="IDSanPham" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -424,10 +410,6 @@
     <AssociationSet Name="FK_KhachHang_LoaiTaiKhoan" Association="Self.FK_KhachHang_LoaiTaiKhoan">
       <End Role="LoaiTaiKhoan" EntitySet="LoaiTaiKhoan" />
       <End Role="KhachHang" EntitySet="KhachHang" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Kho_SanPham" Association="Self.FK_Kho_SanPham">
-      <End Role="SanPham" EntitySet="SanPham" />
-      <End Role="Kho" EntitySet="Kho" />
     </AssociationSet>
     <AssociationSet Name="FK_SanPham_KhuyenMai" Association="Self.FK_SanPham_KhuyenMai">
       <End Role="KhuyenMai" EntitySet="KhuyenMai" />
