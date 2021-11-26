@@ -37,6 +37,7 @@
         <AssociationConnector Association="SenDaModel.FK_NhanVien_Quyen" ManuallyRouted="false" />
         <AssociationConnector Association="SenDaModel.FK_NhapKho_SanPham" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SenDaModel.sysdiagrams" Width="1.5" PointX="4.375" PointY="0.75" />
+        <AssociationConnector Association="SenDaModel.FK_Kho_SanPham" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

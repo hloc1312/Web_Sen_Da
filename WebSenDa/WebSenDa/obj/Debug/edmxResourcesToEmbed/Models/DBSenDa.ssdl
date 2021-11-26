@@ -250,6 +250,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Kho_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+    <End Role="Kho" Type="Self.Kho" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="IDSanPham" />
+      </Principal>
+      <Dependent Role="Kho">
+        <PropertyRef Name="IDSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_NhanVien_LoaiTaiKhoan">
     <End Role="LoaiTaiKhoan" Type="Self.LoaiTaiKhoan" Multiplicity="1" />
     <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
@@ -391,6 +403,10 @@
     <AssociationSet Name="FK_KhachHang_LoaiTaiKhoan" Association="Self.FK_KhachHang_LoaiTaiKhoan">
       <End Role="LoaiTaiKhoan" EntitySet="LoaiTaiKhoan" />
       <End Role="KhachHang" EntitySet="KhachHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kho_SanPham" Association="Self.FK_Kho_SanPham">
+      <End Role="SanPham" EntitySet="SanPham" />
+      <End Role="Kho" EntitySet="Kho" />
     </AssociationSet>
     <AssociationSet Name="FK_NhanVien_LoaiTaiKhoan" Association="Self.FK_NhanVien_LoaiTaiKhoan">
       <End Role="LoaiTaiKhoan" EntitySet="LoaiTaiKhoan" />

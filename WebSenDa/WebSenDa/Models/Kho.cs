@@ -17,5 +17,7 @@ namespace WebSenDa.Models
         public int IDSanPham { get; set; }
         public decimal GiaBan { get; set; }
         public int SoLuongTon { get; set; }
+    
+        public virtual SanPham SanPham { get; set; }
     }
 }
