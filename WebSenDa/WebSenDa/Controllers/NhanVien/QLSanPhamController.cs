@@ -172,9 +172,23 @@ namespace WebSenDa.Controllers.NhanVien
                     nk.NgayNhap = DateTime.Now;
                     nk.SoLuongNhap = v.nhapKho.SoLuongNhap;
                     nk.GiaNhap = v.nhapKho.GiaNhap;
+                int day = DateTime.Now.Day;
+                int month = DateTime.Now.Month;
+                int year= DateTime.Now.Year;
+                var check = db.NhapKho.Where(m => m.IDSanPham == v.nhapKho.IDSanPham && m.NgayNhap.Day==day && m.NgayNhap.Month==month&&m.NgayNhap.Year==year).SingleOrDefault();
+                if(check==null)
+                {
                     db.NhapKho.Add(nk);
                     db.SaveChanges();
-                    return RedirectToAction("Details"+"/"+nk.IDSanPham,"QLSanPham");
+                    return RedirectToAction("Details" + "/" + nk.IDSanPham, "QLSanPham");
+                }
+                else
+                {
+                    ViewBag.Error = "Hehe";                   
+                    return View();
+                }    
+                
+                    
 
             }
             return View();

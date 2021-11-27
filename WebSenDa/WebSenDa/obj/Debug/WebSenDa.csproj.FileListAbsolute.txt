@@ -338,4 +338,3 @@ D:\Lam ho\Web_Sen_Da\WebSenDa\WebSenDa\obj\Debug\WebSenDa.csproj.AssemblyReferen
 D:\Lam ho\Web_Sen_Da\WebSenDa\WebSenDa\obj\Debug\WebSenDa.csproj.CoreCompileInputs.cache
 D:\Lam ho\Web_Sen_Da\WebSenDa\WebSenDa\obj\Debug\WebSenDa.dll
 D:\Lam ho\Web_Sen_Da\WebSenDa\WebSenDa\obj\Debug\WebSenDa.pdb
-D:\Lam ho\WebSenDa\WebSenDa\obj\Debug\WebSenDa.csproj.CopyComplete

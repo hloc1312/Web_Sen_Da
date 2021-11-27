@@ -1,5 +1,4 @@
 ﻿@model WebSenDa.Models.ViewModel
-
 @{
     ViewBag.Title = "AddDonNhap";
 }
@@ -33,7 +32,10 @@
                 @Html.ValidationMessageFor(model => model.nhapKho.SoLuongNhap, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        @if (ViewBag.Error != null)
+                {
+                   <p style="color:red">@ViewBag.Error</p>
+                }
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Lưu" class="btn btn-primary" style="width: 80px" />
