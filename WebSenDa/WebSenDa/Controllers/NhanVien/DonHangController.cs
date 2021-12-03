@@ -12,11 +12,42 @@ namespace WebSenDa.Controllers.NhanVien
     {
         // GET: DonHang
         SenDaEntities db = new SenDaEntities();
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             ViewModel v = new ViewModel();
-            v.ListDonHang = db.DonHang.ToList();
-            return View(v);
+            if (search=="0")
+            {
+                v.ListDonHang = db.DonHang.Where(m => m.TrangThai == 0).ToList();
+                return View("Index", v);
+
+            }
+            else if(search=="1")
+            {
+                v.ListDonHang = db.DonHang.Where(m => m.TrangThai == 1).ToList();
+                return View("Index", v);
+
+            }
+            else if(search=="2")
+            {
+                v.ListDonHang = db.DonHang.Where(m => m.TrangThai == 2).ToList();
+                return View("Index", v);
+
+            }
+            else if (search == "3")
+            {
+                v.ListDonHang = db.DonHang.Where(m => m.TrangThai == 3).ToList();
+                return View("Index", v);
+
+            }
+            else
+            {
+                v.ListDonHang = db.DonHang.ToList();
+                return View("Index", v);
+
+
+            }
+
+
         }
         public ActionResult Detail(int id, string giao, string duyet,string huy, string dangGiao)
         {

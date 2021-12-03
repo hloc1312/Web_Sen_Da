@@ -6,7 +6,21 @@
 
 <h2 class="text-center">Danh Sách Đơn Hàng</h2>
 
+@using (Html.BeginForm("Index", "DonHang", FormMethod.Get))
+{
+<div class="row mt-3">
+    <input class="user-input-search ml-3" type="radio" checked="checked" name="search" value="-1" />
+        <input class="user-input-search ml-3" type="radio" name="search" value="0" />
+        <input class="user-input-search ml-3" type="radio" name="search" value="1" />
+        <input class="user-input-search ml-3" type="radio" name="search" value="2" />
+        <input class="user-input-search ml-3" type="radio" name="search" value="3" />
+@*    @Html.RadioButton("search", "-1")
+    @Html.RadioButton("search", "0")*@
+    <button class="btn btn-search btn-info ml-3" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
 
+    <a href='@Url.Action("Index", "DonHang")' class="btn btn-reload btn-danger ml-3" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+</div>
+}
 <table class="table table-bordered table-hover">
     <tr class="bg-success">
         <th>
@@ -19,6 +33,9 @@
             @Html.DisplayNameFor(model => model.donhang.TrangThai)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.donhang.PhuongThucThanhToan)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.donhang.NgayDat)
         </th>
         <th>
@@ -27,7 +44,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.ListDonHang) {
+    @foreach (var item in Model.ListDonHang)
+    {
 <tr>
     <td>
         @Html.DisplayFor(modelItem => item.IDDonHang)
@@ -36,7 +54,32 @@
         @Html.DisplayFor(modelItem => item.DiaChi)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.TrangThai)
+        @if (item.TrangThai == 0)
+        {
+            <p>Đang đợi duyệt</p>
+        }
+        else if (item.TrangThai == 1)
+        {
+            <p>Đã duyệt </p>
+        }
+        else if (item.TrangThai == 2)
+        {
+            <p>Đang giao </p>
+        }
+        else if (item.TrangThai == 3)
+        {
+            <p>Đã giao </p>
+        }
+
+    </td>
+    <td>
+        @if(item.PhuongThucThanhToan==1)
+                {
+                    <p>Thanh toán khi nhận hàng</p>
+        }else if(item.PhuongThucThanhToan==2)
+                {
+                    <p>Đã thanh toán online</p>
+                }
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.NgayDat)
@@ -49,6 +92,6 @@
         <a class="btn btn-danger " href="@Url.Action("Detail",new { id=item.IDDonHang})"><span style="margin-left:0px" class="far fa-clipboard"></span></a>
     </td>
 </tr>
-}
+    }
 
 </table>
