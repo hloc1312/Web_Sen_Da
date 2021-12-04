@@ -39,6 +39,11 @@ namespace WebSenDa.Controllers.NhanVien
                 return View("Index", v);
 
             }
+            else if (search == "4")
+            {
+                v.ListDonHang = db.DonHang.Where(m => m.TrangThai == 4).ToList();
+                return View("Index", v);
+            }
             else
             {
                 v.ListDonHang = db.DonHang.ToList();

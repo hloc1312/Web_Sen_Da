@@ -65,3 +65,8 @@ table {
     color: #fff;
     text-decoration:none;
 }
+
+.radio-wrap{
+    display:flex;
+    align-items:center;
+}

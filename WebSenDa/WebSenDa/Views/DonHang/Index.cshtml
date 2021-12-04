@@ -8,17 +8,33 @@
 
 @using (Html.BeginForm("Index", "DonHang", FormMethod.Get))
 {
-<div class="row mt-3">
-    <input class="user-input-search ml-3" type="radio" checked="checked" name="search" value="-1" />
-        <input class="user-input-search ml-3" type="radio" name="search" value="0" />
-        <input class="user-input-search ml-3" type="radio" name="search" value="1" />
-        <input class="user-input-search ml-3" type="radio" name="search" value="2" />
-        <input class="user-input-search ml-3" type="radio" name="search" value="3" />
-@*    @Html.RadioButton("search", "-1")
-    @Html.RadioButton("search", "0")*@
-    <button class="btn btn-search btn-info ml-3" type="submit"><i class="fas fa-search"></i> Tìm kiếm</button>
+<div class="row mt-3 mb-3">
+    <div class="radio-wrap ml-3">
+        <input  type="radio" checked="checked" name="search" value="-1" />
+        <span class="ml-2 mr-3" >Tất cả</span>
 
-    <a href='@Url.Action("Index", "DonHang")' class="btn btn-reload btn-danger ml-3" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+        <input  type="radio" name="search" value="0" />
+        <span class="ml-2 mr-3">Đang đợi duyệt đơn</span>
+
+        <input  type="radio" name="search" value="1" />
+        <span class="ml-2 mr-3">Đã duyệt</span>
+
+        <input  type="radio" name="search" value="2" />
+        <span class="ml-2 mr-3">Đang giao</span>
+
+        <input  type="radio" name="search" value="3" />
+        <span class="ml-2 mr-3">Đã giao</span>
+
+        <input  type="radio" name="search" value="4" />
+        <span class="ml-2 mr-3">Đã Hủy</span>
+        <button class="btn btn-search btn-info ml-3" type="submit"><i class="fas fa-search"></i> Lọc</button>
+
+        <a href='@Url.Action("Index", "DonHang")' class="btn btn-reload btn-danger ml-3" style="color:black"><i class="fas fa-sync-alt"></i> Tải lại</a>
+
+    </div>
+
+    @*    @Html.RadioButton("search", "-1")
+        @Html.RadioButton("search", "0")*@
 </div>
 }
 <table class="table table-bordered table-hover">
@@ -70,6 +86,10 @@
         {
             <p>Đã giao </p>
         }
+        else if (item.TrangThai == 4)
+        {
+            <p>Đã Hủy</p>
+        }
 
     </td>
     <td>
@@ -89,7 +109,7 @@
     </td>
     <td class="text-center">
         @*@Html.ActionLink("Details", "Details", new { id = item.IDDonHang })*@
-        <a class="btn btn-danger " href="@Url.Action("Detail",new { id=item.IDDonHang})"><span style="margin-left:0px" class="far fa-clipboard"></span></a>
+        <a class="btn btn-danger " href="@Url.Action("Detail",new { id=item.IDDonHang})"><span class="far fa-clipboard" style="margin-left:0px" class="far fa-clipboard"></span></a>
     </td>
 </tr>
     }
